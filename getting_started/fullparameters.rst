@@ -1,90 +1,83 @@
 Complete Parameters description 
 ===============================
 
-Each possible program option that can be used in an input file will be listed in
-the following few sections of this manual along with a brief explanation of it's
-functionality. It should be noted that not every option is required to be included
-in an input file, and the user can choose which (if any) are appropriate for
-their calculations. Thus, all options, including the input file itself, is optional.
-As a result, each variable that can be changed will also have a default value.
+Each possible program option that can be used in the parameter input file is listed below along with a brief description of its functionality. It is worth mentioning that not all CHAPTER options need to be included in the parameter input file. The user can choose which ones (if any) are appropriate for their simulation. In this way, all options, including the parameter input file itself, are optional. As a result, each changeable variable also has a default value.
 
 numberProbe-tag
 ---------------
-Default: 1000
-number of trajectories calculations per CCS integral.
+Number of trajectories calculations per CCS integral.
+Default value: 1000
 
 nIter-tag
 ---------
-Default: 10
-number of CCS integrals.
+Number of CCS integrals.
+Default value: 10
 
 nthreads-tag
 ------------
-Default: maximal available threads
-number of threads.
+Number of threads allocated for execution.
+Default value: maximal available threads
 
 Temp-tag
 --------
-Default: 298.0 K
-Temperature of buffer gas in Kelvin.
+Temperature, in Kelvin, of the buffer gas.
+Default value: 298.0 K.
 
 seed-tag
 --------
-random number seed to use for random positions of buffer gas around the target 
-molecule and generate their velocities distribution according to the select temperature.
+The seed of random number generator is used to positon the atoms/molecules of the buffer gas around the target molecule and generate their velocity distribution according to the chosen temperature
 
 dt-tag
 ------
-Default: 10 fs
-time step in fs.
+Time step, in femtosecods (fs).
+Default value: 10 fs
 
 skin-tag
 --------
-Default: 0.01 Å
-skin size of unit cell
+Skin size of unit cell used in the Linked-Cell algorithm.
+Default value: 0.01 Å
 
 GasBuffer-tag
 -------------
-Default: He
-select buffer gas type between He or N2 or CO2.
+Buffer gas selection - helium (He), nitrogen (N2), or carbon dioxide (CO2).
+Default value: He.
 
 Equipotential-tag
 -----------------
-Default: no
-Calculation of ellipsoid enveloped around the target molecule to shoot the
-buffer gas. Select yes to perform equipotential calculation that is very slowly
-for lager sytems (more than 50,000 atoms) or no if applied cutoff radius to
-the force calculations.
+Ellipsoid type selection. If selected "yes", an equipotential surface is calculated according to the shape of the target molecule. Then, an ellipsoid is fitted to this surface and magnified uniformly in each direction until the equipotential surface fits completely inside the ellipsoid. This procedure is quite time consuming for large systems. If "no" is selected, the calculation of the ellipsoid is based solely on the geometric shape of the target molecule. 
+Defaltu value: no. 
 
 Short-range cutoff-tag
 ----------------------
-Default: yes
-select yes to applied cutoff to Lennard-Jones force or no to otherwise.
+If sected "yes", a cutoff radius is applied when calculating Lennard-Jones forces. If "no" is selected, the calculation of Lennard-Jones forces is performed on all atoms. 
+Default value: yes
 
 LJ-cutoff-tag
 -------------
-Default: 10.0 Å
-radius cutoff of Lennard-Jones force.
+Cutoff radius of Lennard-Jones forces.
+Default value: 12.0 Å
 
 Long-range forces-tag
 ---------------------
-Default: no
-select yes to applied long-range forces or no to otherwise.
+If selected "yes", long-range forces (ion-quadrupole forces) are also calculated. If "no" is selected, only Lennard-Jones (and ion-induced dipole) forces are calculated.
+Default value: no
+
 
 Long-range cutoff-tag
 ---------------------
-Default: no
-select yes to applied cutoff to long-range forces or no to otherwise.
+If sected "yes", a cutoff radius is applied when calculating long-range forces. If "no" is selected, the calculation of long-range forces is performed on all atoms.
+Default value: no
 
 Coul-cutoff-tag
 ---------------
-Default: 20.0 Å
-radius cutoff of long-range force.
+Cutoff radius of long-range forces.
+Default value: 25.0 Å
 
 polarizabilty-tag
 -----------------
-Default: no
-select yes to applied induce dipole interactions or no to otherwise.
+If selected "yes", ion-induced dipole forces are also calculated. If "no" is selected,
+only Lennard-Jones (and ion-quadrupole) forces are calculated.
+Default value: no
 
 .. warning:: 
     MassCCS can also handle other linear buffer molecules like CO2, although the 

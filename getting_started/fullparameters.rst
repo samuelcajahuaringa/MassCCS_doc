@@ -97,3 +97,4 @@ Default value: no
 .. warning:: 
     MassCCS can also handle other linear buffer molecules like CO2, although the 
     interaction parameters have not been parameterized for CCS calculations using carbon dioxide.
+

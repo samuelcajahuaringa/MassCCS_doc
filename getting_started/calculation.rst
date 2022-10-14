@@ -5,7 +5,7 @@ Structure File
 ~~~~~~~~~~~~~~
 
 In this example, we calculate the CCS value for the Ubiquitin protein (PDB-ID: 1UBQ)
-The structure may be downloaded from the _`Protein Data Bank<https://www.rcsb.org>`_::
+The structure may be downloaded from the _`Protein Data Bank <https://www.rcsb.org>`_::
 
    wget https://files.rcsb.org/download/1ubq.pdb
 

@@ -4,29 +4,30 @@ CCS calculation
 Structure File
 ~~~~~~~~~~~~~~
 
-In this example we are calculate the CCS value for ubiquin protein with PBD Id 1ubq.
-
-The structure may be downloaded from the Protein Data Bank::
+In this example, we calculate the CCS value for the Ubiquitin protein (PDB-ID: 1UBQ)
+The structure may be downloaded from the `Protein Data Bank <https://www.rcsb.org>`_ ::
 
    wget https://files.rcsb.org/download/1ubq.pdb
 
-MassCCS support molecule file in ``PQR`` and ``XYZ`` format. 
+MassCCS support molecule file in ``PQR`` and ``XYZ-like`` format. 
 
-Before the CCS calculation by the MassCCS software, the PDB structures need to convert to the PQR formart.
-To this issue we use the `PDB2PQR <http://pdb2pqr.sourceforge.net/>`_ software package that provides a utility
-for converting protein files in PDB format to PQR format. With no installation PDB2PQR software is available use
-the online server at `PDB2PQR server <https://server.poissonboltzmann.org/pdb2pqr>`_. For more information about
-PDB2PQR tool you can visit: http://pdb2pqr.sourceforge.net/.
+Before calculating the CCS by the MassCCS software, it is necessary to assign partial charges 
+to the atoms of the PDB structure file. To address this issue, we can use the `PDB2PQR <http://pdb2pqr.sourceforge.net/>`_ 
+software package that provides a utility for converting protein files from PDB format to PQR format. 
+With no installation PDB2PQR can be used free of charge through the web server
+`PDB2PQR server <https://server.poissonboltzmann.org/pdb2pqr>`_. For more information about
+PDB2PQR tool you can visit: https://pdb2pqr.readthedocs.io/en/latest/ .
 
-In this case is created at PQR file in pH=4.0 to obtain a ubiquin protein with total charge +4e.
+For the case of ubiquitin, when we select pH=4.0 in the PDB2PQR web server and AMBER forcefield, we generate a PQR file 
+where the total charge of the protein is +4e.
 
 .. note::
-    Before the CCS calculation by the MassCCS software, we recommend relax the PDB structures by energy minimization. 
+    Before the CCS calculation by the MassCCS software, we recommend relax the PDB structures by means energy minimization. 
 
-Input parameters File
-~~~~~~~~~~~~~~~~~~~~~
+Parameter Input File
+~~~~~~~~~~~~~~~~~~~~
 
-After that is necessary use the following input parameter file in json format:
+It is necessary to use the following input parameter file, in json format, to run MassCCS: 
 
 .. code-block:: text
    :caption: input.json
@@ -49,7 +50,7 @@ After that is necessary use the following input parameter file in json format:
         "polarizability" : "yes"        # apply polarizability
     }
 
-Run simulation
+Run Simulation
 ~~~~~~~~~~~~~~
 
 To run the simulation execute the following command: ::
@@ -62,12 +63,12 @@ If your structure is in PQR or XYZ format is only necessary include in the input
 Output
 ~~~~~~
 
-We executed the simulation on CPU consisting of a Dual Intel Xeon E5-2630 v3 processor with 4 cores each and AVX2, running at 2.4 GHz.
+We run this exemple (ubquitin) on CPU consisting of a Dual Intel Xeon E5-2630 v3 processor with 4 cores each and AVX2, running at 2.4 GHz.
 
 The ouput printed on screen is:
 
 .. code-block:: text
-   :caption: printed simulation parameters
+   :caption: simulation parameters
 
    *********************************************************
    INPUT:: Simulation Parameters
@@ -91,7 +92,7 @@ The ouput printed on screen is:
    alpha (Ang^3)                    : 0.204956
 
 .. code-block:: text
-   :caption: information about the target molecule
+   :caption: target molecule information
 
    *********************************************************
    MOLECULE:: orientation around the inertia principal axis

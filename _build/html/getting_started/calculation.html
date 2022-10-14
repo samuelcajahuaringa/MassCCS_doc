@@ -46,8 +46,8 @@
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">CCS calculation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#structure-file">Structure File</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#input-parameters-file">Input parameters File</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#run-simulation">Run simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-input-file">Parameter Input File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-simulation">Run Simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#output">Output</a></li>
 </ul>
 </li>
@@ -86,26 +86,28 @@
 <h1>CCS calculation<a class="headerlink" href="#ccs-calculation" title="Permalink to this heading"></a></h1>
 <section id="structure-file">
 <h2>Structure File<a class="headerlink" href="#structure-file" title="Permalink to this heading"></a></h2>
-<p>In this example we are calculate the CCS value for ubiquin protein with PBD Id 1ubq.</p>
-<p>The structure may be downloaded from the Protein Data Bank:</p>
+<p>In this example, we calculate the CCS value for the Ubiquitin protein (PDB-ID: 1UBQ)
+The structure may be downloaded from the <a class="reference external" href="https://www.rcsb.org">Protein Data Bank</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">files</span><span class="o">.</span><span class="n">rcsb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="mi">1</span><span class="n">ubq</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
-<p>MassCCS support molecule file in <code class="docutils literal notranslate"><span class="pre">PQR</span></code> and <code class="docutils literal notranslate"><span class="pre">XYZ</span></code> format.</p>
-<p>Before the CCS calculation by the MassCCS software, the PDB structures need to convert to the PQR formart.
-To this issue we use the <a class="reference external" href="http://pdb2pqr.sourceforge.net/">PDB2PQR</a> software package that provides a utility
-for converting protein files in PDB format to PQR format. With no installation PDB2PQR software is available use
-the online server at <a class="reference external" href="https://server.poissonboltzmann.org/pdb2pqr">PDB2PQR server</a>. For more information about
-PDB2PQR tool you can visit: <a class="reference external" href="http://pdb2pqr.sourceforge.net/">http://pdb2pqr.sourceforge.net/</a>.</p>
-<p>In this case is created at PQR file in pH=4.0 to obtain a ubiquin protein with total charge +4e.</p>
+<p>MassCCS support molecule file in <code class="docutils literal notranslate"><span class="pre">PQR</span></code> and <code class="docutils literal notranslate"><span class="pre">XYZ-like</span></code> format.</p>
+<p>Before calculating the CCS by the MassCCS software, it is necessary to assign partial charges
+to the atoms of the PDB structure file. To address this issue, we can use the <a class="reference external" href="http://pdb2pqr.sourceforge.net/">PDB2PQR</a>
+software package that provides a utility for converting protein files from PDB format to PQR format.
+With no installation PDB2PQR can be used free of charge through the web server
+<a class="reference external" href="https://server.poissonboltzmann.org/pdb2pqr">PDB2PQR server</a>. For more information about
+PDB2PQR tool you can visit: <a class="reference external" href="https://pdb2pqr.readthedocs.io/en/latest/">https://pdb2pqr.readthedocs.io/en/latest/</a> .</p>
+<p>For the case of ubiquitin, when we select pH=4.0 in the PDB2PQR web server and AMBER forcefield, we generate a PQR file
+where the total charge of the protein is +4e.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before the CCS calculation by the MassCCS software, we recommend relax the PDB structures by energy minimization.</p>
+<p>Before the CCS calculation by the MassCCS software, we recommend relax the PDB structures by means energy minimization.</p>
 </div>
 </section>
-<section id="input-parameters-file">
-<h2>Input parameters File<a class="headerlink" href="#input-parameters-file" title="Permalink to this heading"></a></h2>
-<p>After that is necessary use the following input parameter file in json format:</p>
+<section id="parameter-input-file">
+<h2>Parameter Input File<a class="headerlink" href="#parameter-input-file" title="Permalink to this heading"></a></h2>
+<p>It is necessary to use the following input parameter file, in json format, to run MassCCS:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">input.json</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{
@@ -130,7 +132,7 @@ PDB2PQR tool you can visit: <a class="reference external" href="http://pdb2pqr.s
 </div>
 </section>
 <section id="run-simulation">
-<h2>Run simulation<a class="headerlink" href="#run-simulation" title="Permalink to this heading"></a></h2>
+<h2>Run Simulation<a class="headerlink" href="#run-simulation" title="Permalink to this heading"></a></h2>
 <p>To run the simulation execute the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">..</span> <span class="c1"># need to execute massccs from root dir</span>
 <span class="o">./</span><span class="n">build</span><span class="o">/</span><span class="n">massccs</span> <span class="o">./</span><span class="nb">input</span><span class="o">.</span><span class="n">json</span>
@@ -140,10 +142,10 @@ PDB2PQR tool you can visit: <a class="reference external" href="http://pdb2pqr.s
 </section>
 <section id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this heading"></a></h2>
-<p>We executed the simulation on CPU consisting of a Dual Intel Xeon E5-2630 v3 processor with 4 cores each and AVX2, running at 2.4 GHz.</p>
+<p>We run this exemple (ubquitin) on CPU consisting of a Dual Intel Xeon E5-2630 v3 processor with 4 cores each and AVX2, running at 2.4 GHz.</p>
 <p>The ouput printed on screen is:</p>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">printed simulation parameters</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">simulation parameters</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>*********************************************************
 INPUT:: Simulation Parameters
 *********************************************************
@@ -168,7 +170,7 @@ alpha (Ang^3)                    : 0.204956
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">information about the target molecule</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">target molecule information</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>*********************************************************
 MOLECULE:: orientation around the inertia principal axis
 *********************************************************

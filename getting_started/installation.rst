@@ -9,7 +9,7 @@ Download the `MassCCS <https://github.com/cepid-cces/massccs>`_ or clone the rep
 Required Software
 ~~~~~~~~~~~~~~~~~
 
-Pypka depends on the following software:
+MassCCS depends on the following software:
 
 * C++9.3+
 * Boost library 1.60.0+
@@ -33,4 +33,4 @@ This software uses CMake 3.13+ as its build system generator. On your terminal, 
     cmake .. # Generate Makefiles
     make -j4 # Compile the program
 
-There are optional compilation option that can be used, to see a list of all of them run ``cmake -LH ..``
+There are additional options than can be used to compile the code. To see them, just run cmake ``cmake -LH ..``

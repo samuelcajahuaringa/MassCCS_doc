@@ -14,7 +14,6 @@
 
 MassCCS
 =======
-**PROJECT UNDER CONSTRUCTION**
 
 Massive Collision Cross Section calculations for large macromolecular assemblies (MassCCS). MassCCS is an efficient parallel software
 for calculating Collision Cross Section (CCS) under the trajectory method (TM) for any macromolecular structure regardless of its size, 
@@ -28,9 +27,9 @@ system size were performed. MassCCS efficiency is particularly scalable for mult
 
 If you use MassCCS in your research please, cite the following papers:
 
-* :ref:`S. Cajahuaringa, D. L. Z. Caetano, L. N. Zanotto, G. Araujo and M. S. Skaf, MassCCS: A high performance collision cross-section software for large macromolecules <https://github.com/cepid-cces/hpccs>.`
+* :ref:`S. Cajahuaringa, D. L. Z. Caetano, L. N. Zanotto, G. Araujo and M. S. Skaf, MassCCS: A high performance collision cross-section software for large macromolecules, submitted to Analytical Chemistry`
 
-* :ref:`S. Cajahuaringa, L. N. Zanotto, D. L. Z. Caetano, S. Rigo, H. Yviquel, M. S. Skaf and G. Araujo, Ion-Molecule Collision Cross-Section Simulation using Linked-cell and Trajectory Parallelization.`
+* :ref:`S. Cajahuaringa, L. N. Zanotto, D. L. Z. Caetano, S. Rigo, H. Yviquel, M. S. Skaf and G. Araujo, Ion-Molecule Collision Cross-Section Simulation using Linked-cell and Trajectory Parallelization, IEEE SBAC-PAD 2022`
 
 ============
 Availability
